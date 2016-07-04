@@ -200,8 +200,8 @@ int main (int argc, char* argv[]) {
     cout << "glewInit failed, aborting." << endl;
     exit (1);
   }
-  cout << "Status: Using GLEW " << glewGetString(GLEW_VERSION) << endl;
-  cout << "OpenGL version " << glGetString(GL_VERSION) << " supported" << endl;
+  cout << "Using GLEW " << glewGetString(GLEW_VERSION) << "." << endl;
+  cout << "Using OpenGL " << glGetString(GL_VERSION) << "." <<endl;
 
   init();
   initShaders();
