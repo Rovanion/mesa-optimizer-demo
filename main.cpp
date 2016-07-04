@@ -46,12 +46,11 @@ char* loadFile(string fname, GLint &fSize) {
     file.seekg (0, ios::beg);
     file.read (memblock, size);
     file.close();
-    cout << "file " << fname << " loaded" << endl;
+    cout << "File " << fname << " loaded." << endl;
     text.assign(memblock);
   }
-  else
-  {
-    cout << "Unable to open file " << fname << endl;
+  else {
+	  cout << "Unable to open file " << fname << "!" << endl;
     exit(1);
   }
   return memblock;
