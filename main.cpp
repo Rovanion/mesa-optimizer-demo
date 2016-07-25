@@ -188,7 +188,15 @@ void reshape(int w, int h) {
   glViewport(0, 0, (GLsizei)w, (GLsizei)h);
 }
 
-int main (int argc, char* argv[]) {
+void timer(int killSwitch) {
+  if (killSwitch > 20)
+	  exit(0);
+  killSwitch++;
+  glutTimerFunc(33, timer, killSwitch);
+  glutPostRedisplay();
+}
+
+int main(int argc, char* argv[]) {
   glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
   glutInitWindowSize(600, 600);
@@ -207,8 +215,8 @@ int main (int argc, char* argv[]) {
   initShaders();
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);
+  glutTimerFunc(33, timer, 0);
 
   glutMainLoop();
   return 0;
-
 }
